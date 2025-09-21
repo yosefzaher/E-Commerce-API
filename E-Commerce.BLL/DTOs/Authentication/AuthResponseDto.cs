@@ -16,9 +16,7 @@ public class AuthResponseDto
     public int ExpiresIn { get; set; }
     public string RefreshToken { get; set; } = string.Empty;
     public DateTime RefreshTokenExpiration { get; set; }
-
     public bool RegisterIsSucceeded { get; set; } = true;
     public IEnumerable<string>? RegisterErrors { get; set; }
-
     public List<string> UserRoles { get; set; } = [];
 }

@@ -20,4 +20,18 @@ public class UserService(AppDbContext context, IMapper mapper) : IUserService
 
         return _mapper.Map<IEnumerable<UserResponseDto>>(users);
     }
+
+    public async Task<bool> DeleteUserByIdAsync(string id, CancellationToken cancellationToken)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id, cancellationToken);
+
+        if (user is null)
+            return false;
+
+        _context.Users.Remove(user);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return true;
+    }
+
 }

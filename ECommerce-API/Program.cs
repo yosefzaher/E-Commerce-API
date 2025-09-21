@@ -8,7 +8,11 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins("http://localhost:5173") // your frontend (Vite, React, etc.)
+            .WithOrigins(
+                "http://localhost:5173",   
+                "https://localhost:5173",
+                "https://e-commerce-iti-six.vercel.app"
+            )
             .AllowAnyMethod()
             .AllowAnyHeader()
     );
@@ -17,19 +21,15 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-
 app.UseSwagger();
 app.UseSwaggerUI();
 
-
 app.UseHttpsRedirection();
 
-// Enable CORS before Authorization
+
 app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
-
-//await DbSeeder.SeedAsync(app.Services);
 
 app.MapControllers();
 

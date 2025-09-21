@@ -18,4 +18,17 @@ public class UsersController(IUserService userService) : ControllerBase
 
         return !users.Any() ? NotFound("No users found") : Ok(users);
     }
+
+    [HttpDelete("DeleteUserByID")]
+    public async Task<IActionResult> DeleteUserByID(string id, CancellationToken cancellationToken)
+    {
+        bool isRemoved = await _userService.DeleteUserByIdAsync(id, cancellationToken);
+
+        if (!isRemoved)
+            return NotFound(new { message = $"User with ID {id} not found." });
+
+        return Ok(new { message = $"User with ID {id} deleted successfully." });
+    }
+
+
 }

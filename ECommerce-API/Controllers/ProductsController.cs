@@ -64,7 +64,9 @@ public class ProductsController(IProductService productService) : ControllerBase
     {
         var isDeleted = await _productService.DeleteAsync(Id, cancellationToken);
 
-        return isDeleted ? NoContent() : NotFound($"Product with id {Id} not found.");
+        return isDeleted ?
+               Ok(new {ID=Id , Message = "This Product Has Been Deleted by Admin"}) 
+             : NotFound($"Product with id {Id} not found.");
     }
 
 

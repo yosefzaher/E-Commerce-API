@@ -9,4 +9,7 @@ namespace E_Commerce.BLL.Services;
 public interface IUserService
 {
     Task<IEnumerable<UserResponseDto>> GetUsersAsync(CancellationToken cancellationToken);
+
+    Task<bool> DeleteUserByIdAsync(string id, CancellationToken cancellationToken);
+
 }
