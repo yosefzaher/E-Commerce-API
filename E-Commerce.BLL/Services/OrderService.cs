@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using E_Commerce.BLL.Abstraction;
 using E_Commerce.BLL.DTOs.Order;
 using E_Commerce.BLL.DTOs.Orders;
 using E_Commerce.BLL.DTOs.Product;
@@ -75,6 +76,7 @@ public class OrderService(AppDbContext context) : IOrderService
         return orderProductsDetails;
     }
 
+    // Return Order Status = Pinding
     public async Task<IEnumerable<UserOrderResponseDto>> GetUserOrdersAsync(string userId, CancellationToken cancellationToken)
     {
         var userOrders = await _context.Orders
@@ -83,6 +85,7 @@ public class OrderService(AppDbContext context) : IOrderService
             {
                 OrderId = o.OrderId,
                 CountOfItems = o.OrderItems.Count(),
+                OrderStatus = o.Status,
                 TotalAmoutForeachOrder = o.OrderItems.Sum(oi => oi.UnitPrice * oi.Quantity),
             })
             .ToListAsync(cancellationToken);
@@ -160,11 +163,58 @@ public class OrderService(AppDbContext context) : IOrderService
         if (order is null)
             return 0;
 
-        order.Status = "Shipped";
+        order.Status = OrderStatus.Shipped;
         await _context.SaveChangesAsync(cancellationToken);
 
         return order.OrderId;
     }
 
+    public async Task<IEnumerable<UserOrderResponseDto>> GetUserShippedOrdersAsync(string userId, CancellationToken cancellationToken)
+    {
+        var userOrders = await _context.Orders
+            .Where(o => o.UserId == userId && o.Status == OrderStatus.Shipped)
+            .Select(o => new UserOrderResponseDto
+            {
+                OrderId = o.OrderId,
+                CountOfItems = o.OrderItems.Count(),
+                OrderStatus = o.Status,
+                TotalAmoutForeachOrder = o.OrderItems.Sum(oi => oi.UnitPrice * oi.Quantity),
+            })
+            .ToListAsync(cancellationToken);
+
+        return userOrders;
+    }
+
+    public async Task<IEnumerable<UserOrderResponseDto>> GetAllShippedOrdersAsync(CancellationToken cancellationToken)
+    {
+        var userOrders = await _context.Orders
+            .Where(o => o.Status == OrderStatus.Shipped)
+            .Select(o => new UserOrderResponseDto
+            {
+                OrderId = o.OrderId,
+                CountOfItems = o.OrderItems.Count(),
+                OrderStatus = o.Status,
+                TotalAmoutForeachOrder = o.OrderItems.Sum(oi => oi.UnitPrice * oi.Quantity),
+            })
+            .ToListAsync(cancellationToken);
+
+        return userOrders;
+    }
+
+    public async Task<bool> RemoveUserShippedOrdersAsync(string userId, CancellationToken cancellationToken)
+    {
+        var shippedOrders = await _context.Orders
+            .Where(o => o.UserId == userId)
+            .ToListAsync(cancellationToken);
+
+        if (!shippedOrders.Any())
+            return false;
+
+        _context.RemoveRange(shippedOrders);
+
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return true;
+    }
 
 }

@@ -9,5 +9,6 @@ public class UserOrderResponseDto
 {
     public int OrderId { get; set; } // 
     public int CountOfItems { get; set; }
+    public string OrderStatus { get; set; } = string.Empty;
     public decimal TotalAmoutForeachOrder { get; set; }
 }

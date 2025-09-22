@@ -64,4 +64,29 @@ public class OrdersController(IOrderService order) : ControllerBase
         return Ok(new {OrderId = result}); 
     }
 
+    [HttpGet("GetUserShippedOrders/{userId}")]
+    public async Task<IActionResult> GetUserShippedOrders(string userId, CancellationToken cancellationToken = default)
+    {
+        var userOrders = await _order.GetUserShippedOrdersAsync(userId, cancellationToken);
+
+        return userOrders.Any() ? Ok(userOrders) : BadRequest();
+    }
+
+    [HttpGet("GetAllShippedOrders")]
+    public async Task<IActionResult> GetAllShippedOrders(CancellationToken cancellationToken = default)
+    {
+        var shippedOrders = await _order.GetAllShippedOrdersAsync(cancellationToken);
+
+        return shippedOrders.Any() ? Ok(shippedOrders) : BadRequest(new { Message = "There is no shipped orders"});
+
+    }
+
+    [HttpDelete("ClearUserShippedOrders/{userId}")]
+    public async Task<IActionResult> ClearUserShippedOrders(string userId, CancellationToken cancellationToken = default)
+    {
+        var userShippedOrders = await _order.RemoveUserShippedOrdersAsync(userId, cancellationToken);
+
+        return userShippedOrders ? NoContent() : BadRequest();
+    }
+
 }
