@@ -176,6 +176,7 @@ public class OrderService(AppDbContext context) : IOrderService
             .Select(o => new UserOrderResponseDto
             {
                 OrderId = o.OrderId,
+                UserId = o.UserId,
                 CountOfItems = o.OrderItems.Count(),
                 OrderStatus = o.Status,
                 TotalAmoutForeachOrder = o.OrderItems.Sum(oi => oi.UnitPrice * oi.Quantity),
@@ -192,6 +193,7 @@ public class OrderService(AppDbContext context) : IOrderService
             .Select(o => new UserOrderResponseDto
             {
                 OrderId = o.OrderId,
+                UserId = o.UserId,
                 CountOfItems = o.OrderItems.Count(),
                 OrderStatus = o.Status,
                 TotalAmoutForeachOrder = o.OrderItems.Sum(oi => oi.UnitPrice * oi.Quantity),
@@ -201,10 +203,10 @@ public class OrderService(AppDbContext context) : IOrderService
         return userOrders;
     }
 
-    public async Task<bool> RemoveUserShippedOrdersAsync(string userId, CancellationToken cancellationToken)
+    public async Task<bool> RemoveUserShippedOrdersAsync(string userId, int orderId, CancellationToken cancellationToken)
     {
         var shippedOrders = await _context.Orders
-            .Where(o => o.UserId == userId)
+            .Where(o => o.UserId == userId && o.OrderId == orderId && o.Status == OrderStatus.Shipped)
             .ToListAsync(cancellationToken);
 
         if (!shippedOrders.Any())

@@ -19,6 +19,6 @@ public interface IOrderService
     Task<int> MarkOrderAsShipped(int orderId, string userId, CancellationToken cancellationToken);
     Task<IEnumerable<UserOrderResponseDto>> GetUserShippedOrdersAsync(string userId, CancellationToken cancellationToken);
     Task<IEnumerable<UserOrderResponseDto>> GetAllShippedOrdersAsync(CancellationToken cancellationToken);
-    Task<bool> RemoveUserShippedOrdersAsync(string userId, CancellationToken cancellationToken);
+    Task<bool> RemoveUserShippedOrdersAsync(string userId, int orderId, CancellationToken cancellationToken);
 
 }
