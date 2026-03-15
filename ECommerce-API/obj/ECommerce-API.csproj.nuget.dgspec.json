@@ -1,39 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj": {}
+    "D:\\3-Tier Architecture Project\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj": {}
   },
   "projects": {
-    "C:\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj": {
+    "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj",
+        "projectUniqueName": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj",
         "projectName": "E-Commerce.BLL",
-        "projectPath": "C:\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\E-Commerce-API\\E-Commerce.BLL\\obj\\",
+        "projectPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj": {
-                "projectPath": "C:\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj"
+              "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj": {
+                "projectPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj"
               }
             }
           }
@@ -102,37 +96,45 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj": {
+    "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj",
+        "projectUniqueName": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj",
         "projectName": "E-Commerce.DAL",
-        "projectPath": "C:\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\E-Commerce-API\\E-Commerce.DAL\\obj\\",
+        "projectPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\E-Commerce.DAL.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.DAL\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -225,45 +227,53 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj": {
+    "D:\\3-Tier Architecture Project\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj",
+        "projectUniqueName": "D:\\3-Tier Architecture Project\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj",
         "projectName": "ECommerce-API",
-        "projectPath": "C:\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj",
-        "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\E-Commerce-API\\ECommerce-API\\obj\\",
+        "projectPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\ECommerce-API\\ECommerce-API.csproj",
+        "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+        "outputPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\ECommerce-API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj": {
-                "projectPath": "C:\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj"
+              "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj": {
+                "projectPath": "D:\\3-Tier Architecture Project\\E-Commerce-API\\E-Commerce.BLL\\E-Commerce.BLL.csproj"
               }
             }
           }
@@ -356,6 +366,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.21, 8.0.21]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -364,7 +392,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
