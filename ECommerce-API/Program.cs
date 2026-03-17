@@ -28,11 +28,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowFrontend",
         policy => policy
-            .WithOrigins(
-                "http://localhost:5173",
-                "https://localhost:5173",
-                "https://e-commerce-iti-six.vercel.app"
-            )
+            .AllowAnyOrigin()  
             .AllowAnyMethod()
             .AllowAnyHeader()
     );
