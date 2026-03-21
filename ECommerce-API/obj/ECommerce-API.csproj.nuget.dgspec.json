@@ -294,6 +294,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AWSSDK.SecretsManager": {
+              "target": "Package",
+              "version": "[4.0.4.10, )"
+            },
             "AutoMapper": {
               "target": "Package",
               "version": "[11.0.0, )"

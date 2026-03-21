@@ -7,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 var client = new AmazonSecretsManagerClient(RegionEndpoint.USEast1);
-var request = new GetSecretValueRequest { SecretId = "ClickToBuy/Prod/DbCredentials" };
+var request = new GetSecretValueRequest { SecretId = "ClickToBuy/Prod/DbCredential" };
 var response = client.GetSecretValueAsync(request).Result;
 
 var secretData = JsonSerializer.Deserialize<Dictionary<string, object>>(response.SecretString);
