@@ -1,0 +1,32 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      dotnet: 8.0
+    commands:
+      - echo "[Buildspec INFO] Starting Installation Phase......"
+      - echo "[Buildspec INFO] Downloading Entity Framework Core CLI Tools......" 
+      - dotnet tool install --global dotnet-ef --version 8.0.0
+      - echo "[Buildspec INFO] Refreshing the Server PATH......" 
+      - export PATH="$PATH:/root/.dotnet/tools"
+  build:
+    commands:
+      - echo "[Buildspec INFO] Starting Build Phase......"
+      - echo "[Buildspec INFO] Adding AWS SDK for .NET......"
+      - cd ECommerce-API  
+      - dotnet add package AWSSDK.SecretsManager
+      - cd .. 
+      - dotnet publish -c Release --self-contained=false --runtime linux-x64 -o ./publish-output
+      - echo "[Buildspec INFO] Build completed on `date`"
+  post_build:
+    commands:
+      - echo "[Buildspec INFO] Starting Post-Build Phase......"
+      - echo "[Buildspec INFO] Generating Migration Script......" 
+      - dotnet ef migrations script --output publish-output/migration_$(date +%Y%m%d_%H%M%S).sql --idempotent --project ECommerce-API/ECommerce-API.csproj
+      - echo "[Buildspec INFO] Database migration completed on `date`"
+artifacts:
+  files:
+    - 'scripts/**/*'
+    - appspec.yml
+    - publish-output/**/*
+  discard-paths: no
