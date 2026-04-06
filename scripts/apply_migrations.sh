@@ -2,7 +2,7 @@
 
 echo "[After Install Script] Applying Database Migrations..."
 
-SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id ClickToBuy/Prod/DbCredential --query SecretString --output text)
+SECRET_JSON=$(aws secretsmanager get-secret-value --secret-id dev/database/cridentials --query SecretString --output text)
 
 if [ -z "$SECRET_JSON" ]; then
     echo "[After Install Script] ERROR: Could not retrieve secret from Secrets Manager."
